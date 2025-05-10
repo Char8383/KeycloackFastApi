@@ -60,6 +60,32 @@
 
 - - `KC_HOSTNAME` — ваше доменное имя
 
+## Создание виртуального окружения
+
+```bash
+python -m venv .venv-keyclock
+```
+
+**Активация виртуального окружения:**
+
+- **На Windows:**
+  
+  ```bash
+  .venv-keyclock\Scripts\activate
+  ```
+  
+  **или**
+  
+  ```bash
+  .venv-keyclock/bin/activate
+  ```
+
+- **На macOS и Linux:**
+
+   ```bash
+   source .venv-keyclock/bin/activate
+   ```
+
 ---
 
 💼 **Автор:** Дуплей Максим Игоревич

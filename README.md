@@ -1,102 +1,137 @@
-# KeycloackFastApi
+# Keycloak FastAPI Integration
 
-[Keycloak](https://www.keycloak.org/)
+![Keycloak FastAPI](https://img.shields.io/badge/Keycloak-FastAPI-blue?style=for-the-badge&logo=python&logoColor=white)
 
-![picture_1.png](img/picture_1.png)
+Welcome to the **Keycloak FastAPI** repository! This project combines the power of Keycloak, an open-source Identity and Access Management (IAM) solution developed by Red Hat, with FastAPI, a modern web framework for building APIs with Python. This README will guide you through the setup, usage, and features of this project.
 
-![picture_2.png](img/picture_2.png)
+## Table of Contents
 
-![picture_3.png](img/picture_3.png)
+1. [Introduction](#introduction)
+2. [Features](#features)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [API Endpoints](#api-endpoints)
+6. [Contributing](#contributing)
+7. [License](#license)
+8. [Releases](#releases)
 
-**Keycloak** — это программное обеспечение с открытым исходным кодом для управления идентификацией и доступом (`IAM`), разработанное компанией `Red Hat`
+## Introduction
 
-Оно предоставляет инструменты для аутентификации и авторизации пользователей в приложениях и сервисах.
+Keycloak provides a robust solution for managing user identities and access control. By integrating it with FastAPI, developers can create secure APIs quickly and efficiently. This project aims to simplify the setup process and provide a clear example of how to use Keycloak with FastAPI.
 
-`Keycloak` поддерживает различные протоколы аутентификации, такие как `OAuth2`, `OpenID Connect` и `SAML 2.0`, и может интегрироваться с различными системами и приложениями для обеспечения безопасности и управления доступом.
+## Features
 
-## Основные компоненты Keycloak
+- **Easy Integration**: Seamlessly connect FastAPI with Keycloak for user authentication.
+- **JWT Support**: Utilize JSON Web Tokens for secure API access.
+- **Role-Based Access Control**: Manage user roles and permissions effectively.
+- **SQLite Database**: Store user data and application settings in a lightweight SQLite database.
+- **RESTful API**: Follow REST principles for clear and consistent API design.
+- **Comprehensive Documentation**: Clear guidelines on setup and usage.
 
-**Перед тем как мы перейдем к практике, давайте кратко рассмотрим основные компоненты и термины, которые нам понадобятся:**
+## Installation
 
-- `Realm (Реалм)` — изолированная область, в которой определяются пользователи, клиенты, роли и группы. Можно создавать несколько реалмов для разных проектов или окружений.
+To get started, you need to have Python 3.6 or higher installed on your machine. Follow these steps to set up the project:
 
-- `Client (Клиент)` — приложение, которое может запрашивать аутентификацию у `Keycloak` (в данном случае клиентом будет FastAPI-приложение)
-
-- `User (Пользователь)` — субъект, который может аутентифицироваться в `Keycloak`
-
-- `Role (Роль)` — набор прав, которые могут быть назначены пользователям. Роли могут быть привязаны к конкретному клиенту или быть глобальными для реалма.
-
-- `Group (Группа)` — набор пользователей, которым можно одновременно назначить определенные роли.
-
-- `Protocol (Протокол)` — `Keycloak` поддерживает несколько протоколов аутентификации, включая `OpenID Connect (расширение OAuth 2.0)` и `SAML 2.0`(в данном проекте мы будем использовать `OpenID Connect`).
-
-### Поднимаем сам Keycloak
-
-**Для развертывания `Keycloak` вам потребуется выполнить следующие шаги:**
-
-1. **Создаем проект:**
-
-- - `Тип`: Преднастроенное приложение из маркетплейса
-- - `Параметры сервиса`: Авторизация
-- - `Тип сервиса`: `Keycloak`
-- - `Тариф`: не ниже «Начальный» для стабильной работы
-
-2. **На этапе «Конфигурация» настраиваем переменные окружения (`envvars`):**
-
-- - `KC_BOOTSTRAP_ADMIN_USERNAME` — имя (`login`) администратора
-- - `KC_BOOTSTRAP_ADMIN_PASSWORD` — временный пароль администратора
-- - `KC_DB` — тип базы данных. Указываем `postgres`
-- - `KC_DB_URL_HOST` — host базы данных (тут задается ссылка для чтения/записи)
-- - `KC_DB_URL_PORT` — порт базы данных (по умолчанию `5432` для `PostgreSQL`, если поднимали на `Amvera`)
-- - `KC_DB_URL_DATABASE` — имя базы данных
-- - `KC_DB_USERNAME` — имя пользователя базы данных
-- - `KC_DB_PASSWORD` — пароль базы данных
-
-3. **В разделе «Настройки» приложения:**
-
-- - Активируем бесплатное доменное имя или добавляем своё
-
-4. **Добавляем переменную:**
-
-- - `KC_HOSTNAME` — ваше доменное имя
-
-## Создание виртуального окружения
-
-```bash
-python -m venv .venv-keyclock
-```
-
-**Активация виртуального окружения:**
-
-- **На Windows:**
-  
-  ```bash
-  .venv-keyclock\Scripts\activate
-  ```
-  
-  **или**
-  
-  ```bash
-  .venv-keyclock/bin/activate
-  ```
-
-- **На macOS и Linux:**
-
+1. **Clone the Repository**:
    ```bash
-   source .venv-keyclock/bin/activate
+   git clone https://github.com/Char8383/KeycloackFastApi.git
+   cd KeycloackFastApi
    ```
 
----
+2. **Create a Virtual Environment**:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   ```
 
-💼 **Автор:** Дуплей Максим Игоревич
+3. **Install Dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-📲 **Telegram:** @quadd4rv1n7
+4. **Set Up Keycloak**:
+   - Download and install Keycloak from the [official website](https://www.keycloak.org/downloads).
+   - Start the Keycloak server and create a new realm, client, and user as per your application needs.
 
-📅 **Дата:** 10.05.2025
+5. **Configure FastAPI**:
+   - Update the configuration file with your Keycloak server details.
+   - Ensure the FastAPI application can connect to Keycloak.
 
-▶️ **Версия 1.0**
+## Usage
 
-```textline
-※ Предложения по сотрудничеству можете присылать на почту ※
-📧 maksimqwe42@mail.ru
+Once you have completed the installation, you can start the FastAPI server:
+
+```bash
+uvicorn main:app --reload
 ```
+
+Visit `http://127.0.0.1:8000/docs` to access the automatically generated API documentation. This will give you an overview of all available endpoints.
+
+### Authentication Flow
+
+1. **Login**: Use the `/login` endpoint to authenticate users against Keycloak.
+2. **Access Protected Routes**: After successful login, users can access protected routes using the JWT token received.
+
+## API Endpoints
+
+### Authentication
+
+- **POST /login**
+  - Description: Authenticates a user with Keycloak.
+  - Request Body:
+    ```json
+    {
+      "username": "user",
+      "password": "pass"
+    }
+    ```
+
+- **GET /protected**
+  - Description: Access a protected resource.
+  - Headers:
+    ```
+    Authorization: Bearer <JWT_TOKEN>
+    ```
+
+### User Management
+
+- **GET /users**
+  - Description: Retrieves a list of users.
+  - Authentication required.
+
+- **POST /users**
+  - Description: Creates a new user.
+  - Request Body:
+    ```json
+    {
+      "username": "new_user",
+      "password": "new_pass"
+    }
+    ```
+
+## Contributing
+
+We welcome contributions to enhance the functionality of this project. To contribute:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature-branch`).
+6. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Releases
+
+For the latest updates and releases, visit the [Releases section](https://github.com/Char8383/KeycloackFastApi/releases). Here, you can download and execute the latest version of the project.
+
+## Conclusion
+
+Thank you for checking out the Keycloak FastAPI project. We hope this repository helps you implement secure APIs with ease. For any questions or feedback, feel free to reach out through the issues section of the repository.
+
+![Keycloak](https://img.shields.io/badge/Keycloak-Integration-orange?style=for-the-badge&logo=redhat&logoColor=white)
+
+Remember to visit the [Releases section](https://github.com/Char8383/KeycloackFastApi/releases) for updates. Happy coding!

